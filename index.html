@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="discription" content="Weartake">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/database.js"></script>
+    <title>Weartake</title>
+</head>
+
+<body>
+    <header class="menu">
+        <div class="container">
+            <nav class="menu-flex">
+                <h1>Weartake</h1>
+
+                <div>
+                    <ul class="menu-lista">
+                        <li><a href="#"><b>Todos</b></a> </li>
+                        <li><a href="#">Acessórios</a></li>
+                        <li><a href="#">Calçados</a></li>
+                        <li><a href="#">Camisetas</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="vitrine">
+                <ul class="lista-cards">
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/camiseta_preta.svg" alt="Camiseta Preta Lisa">
+
+                        <span class="categoria-camiseta">Camisetas</span>
+
+                        <h3 class="card-titulo">Camiseta Preta Lisa</h3>
+
+                        <span class="card-texto">Camiseta perfeita para esportes, com tecido fino e leve para melhor movimentação...</span>
+
+                        <span class="card-preco">R$ 60.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/camiseta_branca.svg" alt="Camiseta Branca Lisa">
+
+                        <span class="categoria-camiseta">Camisetas</span>
+
+                        <h3 class="card-titulo">Camiseta Branca Lisa</h3>
+
+                        <span class="card-texto">Camiseta perfeita para esportes, com tecido fino e leve para melhor movimentação...</span>
+
+                        <span class="card-preco">R$ 60.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/gorro.svg" alt="Gorro Preto">
+
+                        <span class="categoria-acessorio">Acessórios</span>
+
+                        <h3 class="card-titulo">Gorro Preto</h3>
+
+                        <span class="card-texto">Gorro feito para melhor adptação a sua cabeça, para esquentar perfeitamente e proteger...</span>
+
+                        <span class="card-preco">R$ 40.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/jaqueta.svg" alt="Jaqueta Leve">
+
+                        <span class="categoria-camiseta">Camisetas</span>
+
+                        <h3 class="card-titulo">Jaqueta Leve</h3>
+
+                        <span class="card-texto">Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...</span>
+
+                        <span class="card-preco">R$ 100.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/mascara.svg" alt="Mascara">
+
+                        <span class="categoria-acessorio">Acessórios</span>
+
+                        <h3 class="card-titulo">Mascara</h3>
+
+                        <span class="card-texto">Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...</span>
+
+                        <span class="card-preco">R$ 5.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+
+                    <li class="card-produto">
+                        <img class="card-img" src="./img/moletom.svg" alt="Mask">
+
+                        <span class="categoria-camiseta">Camiseta</span>
+
+                        <h3 class="card-titulo">Jaqueta Preta</h3>
+
+                        <span class="card-texto">Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...</span>
+
+                        <span class="card-preco">R$ 100.00</span>
+
+                        <button class="card-add-carrinho">Adicionar ao carrinho</button>
+                    </li>
+                </ul>
+
+                <section class="sidebar">
+                    <div class="sidebar-pesquisa">
+                        <input class="sidebar-pesquisa-input" type="text" placeholder="Digite aqui sua pesquisa">
+    
+                        <button class="sidebar-pesquisa-botao">Pesquisar</button>
+                    </div>
+    
+                    <div class="carrinho">
+                        <h2 class="sidebar-carrinho-titulo">Carrinho de Compras</h2>
+
+                        <section class="carrinho">
+                            <ul class="carrinho-lista">
+                                <li class="card-carrinho">
+                                    
+                                    <img class="carrinho-img" src="./img/camiseta_branca.svg" alt="Camiseta Branca Lisa">
+                
+                                    <div class="carrinho-flex">
+                                        <h4 class="card-titulo">Camiseta Branca Lisa</h4>
+                
+                                        <span class="card-preco">R$ 60.00</span>
+                
+                                        <button class="card-remover-item">Remover produto</button>
+                                    </div>
+                                </li>
+
+                                <li class="card-carrinho">
+                                    
+                                    <img class="carrinho-img" src="./img/camiseta_preta.svg" alt="Camiseta Preta Lisa">
+                    
+                                    <div class="carrinho-flex">
+                                        <h4 class="card-titulo">Camiseta Preta Lisa</h4>
+                    
+                                        <span class="card-preco">R$ 60.00</span>
+                    
+                                        <button class="card-remover-item">Remover produto</button>
+                                    </div>
+                                </li>
+
+                                <li class="card-carrinho">
+                                    
+                                    <img class="carrinho-img" src="./img/gorro.svg" alt="Gorro Preto">
+                    
+                                    <div class="carrinho-flex">
+                                        <h4 class="card-titulo">Gorro Preto</h4>
+                    
+                                        <span class="card-preco">R$ 40.00</span>
+                    
+                                        <button class="card-remover-item">Remover produto</button>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="background-cinza">
+                                <div>
+                                    <span>Quantidade:</span>
+
+                                    <span>3</span>
+                                </div>
+
+                                <div>
+                                    <span>Total:</span>
+
+                                    <span>R$ 200,00</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

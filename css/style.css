@@ -1,0 +1,208 @@
+body, header, nav, main, div, ul, li, section, span, input, button, h1, h2, h3, h4, a{
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container{
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.menu{
+    padding: 10px 0;
+    box-shadow: 0px 1px 0px 2px rgba(0,0,0,0.1);
+}
+
+.menu-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1{
+    font-size: 28px;
+}
+
+.menu .menu-lista{
+    display: flex;
+    gap: 15px;
+}
+
+.menu-lista li a{
+    color: black;
+}
+
+.menu-lista li a:hover{
+    color: #2a00fb;
+}
+
+main{
+    margin-top: 20px;
+}
+
+.vitrine{
+    display: flex;
+    justify-content: space-between;
+}
+
+.lista-cards{
+    display: flex;
+    max-width: 70%;
+    gap: 25px 56px;
+    flex-wrap: wrap;
+}
+
+.card-produto{
+    display: flex;
+    padding-left: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 400px;
+    border: solid transparent 2px;
+}
+
+.card-produto:hover{
+    border: solid 2px #2a00fb;
+}
+
+.card-img{
+    object-fit: contain;
+    height: 150px;
+}
+
+.categoria-camiseta{
+    background-color: #2E245E;
+    color: #fff;
+    padding: 3px;
+    width: 85px;
+}
+
+.categoria-acessorio{
+    background-color: #2E245E;
+    color: #fff;
+    padding: 3px;
+    width: 90px;
+}
+
+.categoria-calcado{
+    background-color: #2E245E;
+    color: #fff;
+    padding: 3px;
+    width: 76px;
+}
+
+.card-texto{
+    line-height: 30px;
+    color: #242424;
+}
+
+.card-preco{
+    color: #2E245E;
+    font-weight: 600;
+}
+
+.card-add-carrinho{
+    padding-left: 2px;
+    border: none;
+    text-align: start;
+    font-size: 16px;
+    color: #242424;
+    background-color: #fff;
+    width: 165px;
+}
+
+.card-add-carrinho:hover{
+    background-color: #2E245E;
+    color: #fff;
+}
+
+.sidebar{
+    max-width: 30%;
+    align-items: center;
+}
+
+.sidebar-pesquisa{
+    margin-bottom: 10px;
+}
+
+.sidebar-pesquisa-input{
+    border: none;
+    outline: none;
+    width: 250px;
+    height: 50px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.sidebar-pesquisa-botao{
+    border: none;
+    height: 40px;
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #37268C;
+    color: #fff;
+}
+
+.sidebar-pesquisa-botao:hover{
+    background-color: #2a00fb;
+}
+
+.sidebar-carrinho-titulo{
+    font-size: 16px;
+    text-align: center;
+    padding: 25px 0;
+    background-color: #37268C;
+    color: #fff;
+}
+
+.carrinho-lista{
+    overflow-x: auto;
+    height: 300px;
+}
+
+.card-carrinho{
+    display: flex;
+    margin-top: 10px;
+}
+
+.carrinho-img{
+    padding: 15px;
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.carrinho-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-remover-item{
+    border: none;
+    text-align: start;
+}
+
+.background-cinza{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #292929;
+    height: 150px;
+}
+
+.background-cinza div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.background-cinza div span{
+    padding: 0 5px;
+    color: #fff;
+}
