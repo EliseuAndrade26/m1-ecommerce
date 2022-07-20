@@ -61,6 +61,7 @@ main{
 .card-produto{
     display: flex;
     padding-left: 5px;
+    padding-bottom: 5px;
     flex-direction: column;
     justify-content: space-between;
     width: 310px;
@@ -109,18 +110,19 @@ main{
 }
 
 .card-add-carrinho{
-    padding-left: 2px;
+    padding: 5px;
     border: none;
     text-align: start;
     font-size: 16px;
     color: #242424;
     background-color: #fff;
-    width: 165px;
+    width: 173px;
 }
 
 .card-add-carrinho:hover{
     background-color: #2E245E;
     color: #fff;
+    transition: 0.4s;
 }
 
 .sidebar{
@@ -168,9 +170,21 @@ main{
     height: 300px;
 }
 
+.carrinho-lista h2{
+    margin-top: 70px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.carrinho-lista p{
+    text-align: center;
+}
+
 .card-carrinho{
     display: flex;
     margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 .carrinho-img{
@@ -189,6 +203,15 @@ main{
 .card-remover-item{
     border: none;
     text-align: start;
+    padding: 5px;
+    width: 119px;
+    background-color: #fff;
+}
+
+.card-remover-item:hover{
+    background-color: #2E245E;
+    color: #fff;
+    transition: 0.3s;
 }
 
 .background-cinza{
