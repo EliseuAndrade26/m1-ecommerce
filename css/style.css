@@ -37,6 +37,10 @@ h1{
     color: black;
 }
 
+#strong{
+    font-weight: 700;
+}
+
 .menu-lista li a:hover{
     color: #2a00fb;
 }

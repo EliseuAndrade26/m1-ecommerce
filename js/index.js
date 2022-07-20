@@ -6,6 +6,7 @@ function criarCardProduto(produtos){
     for(let posicao = 0; posicao < produtos.length; posicao++){
         let liProduto           = document.createElement("li")
         let imgProduto          = document.createElement("img")
+        let categoriaProduto    = document.createElement("span")
         let tituloProduto       = document.createElement("h3")
         let descricaoProduto    = document.createElement("span")
         let precoProduto        = document.createElement("span")
@@ -16,13 +17,8 @@ function criarCardProduto(produtos){
         imgProduto.classList        = "card-img"
         imgProduto.src              = produtos[posicao].img
         imgProduto.alt              = produtos[posicao].nameItem
-        for(let posicao2 = 0; posicao2 < produtos[posicao].tag.length; posicao2++){
-            let categoriaProduto        = document.createElement("span")
-            
-            categoriaProduto.classList  = encontrarCategoria(produtos[posicao].tag[posicao2])
-
-            categoriaProduto.innerText  = produtos[posicao].tag[posicao2]
-        }
+        categoriaProduto.classList  = encontrarCategoria(produtos[posicao].tag[0])
+        categoriaProduto.innerText  = produtos[posicao].tag
         tituloProduto.classList     = "card-titulo"
         tituloProduto.innerText     = produtos[posicao].nameItem
         descricaoProduto.classList  = "card-descricao"
@@ -33,7 +29,7 @@ function criarCardProduto(produtos){
         botaoProduto.id             = produtos[posicao].id
         botaoProduto.innerText      = produtos[posicao].addCart
 
-        liProduto.append(imgProduto, tituloProduto, descricaoProduto, precoProduto, botaoProduto)
+        liProduto.append(imgProduto, categoriaProduto,tituloProduto, descricaoProduto, precoProduto, botaoProduto)
         ulVitrine.appendChild(liProduto)
     }
 }
@@ -51,12 +47,89 @@ function encontrarCategoria(categoria){
     }
 }
 
-let botaoProduto = document.querySelectorAll(".card-add-carrinho")
+let ulMenuNav           = document.querySelector(".menu-lista")
+let inputPesquisa       = document.querySelector(".sidebar-pesquisa-input")
+let botaoPesquisa       = document.querySelector(".sidebar-pesquisa-botao")
+let botaoProduto        = document.querySelectorAll(".card-add-carrinho")
 let h2CarrinhoVazio     = document.querySelector(".carrinho-vazio")
-let pCarrinhoVazio     = document.querySelector(".adicione-item")
+let pCarrinhoVazio      = document.querySelector(".adicione-item")
 let divQuantidadeValor  = document.querySelector(".background")
 let contador            = 0
 let total               = 0
+
+
+function mudarMnuNav(event){
+    let target = event.target
+    if(target.tagName == "A"){
+        let removerStrong = document.querySelector("#strong")
+        removerStrong.id = ""
+        target.id = "strong"
+
+        mudarVitrine(target.classList[0])
+    }
+}
+
+function mudarVitrine(categoria){
+    let dataCategoria = []
+    for(let posicao = 0; posicao < data.length; posicao++){
+        if(categoria == "todos"){
+            return criarCardProduto(data)
+        }
+        else if(categoria == data[posicao].tag[0].toLowerCase().replace("ó", "o").replace("ç", "c")){
+            console.log(dataCategoria)
+            dataCategoria.push(data[posicao])
+            criarCardProduto(dataCategoria)
+        }
+    }
+    if((dataCategoria.length - 1) == -1){
+        ulVitrine.innerHTML = ""
+        let semProdutos = document.createElement("h2")
+        semProdutos.innerText = "Não há produtos nesta categoria"
+        ulVitrine.appendChild(semProdutos)
+    }
+}
+
+ulMenuNav.addEventListener("click", mudarMnuNav)
+
+function pesquisarProdutoClick(event){
+    let target = event.target
+    if(target.tagName == "BUTTON"){
+        inputValue = inputPesquisa.value.trim().toLowerCase()
+        encontrarProduto(inputValue)
+        inputPesquisa.value = ""
+    }
+}
+
+function encontrarProduto(inputValue){
+    let produtosAchados = []
+    for(let posicao = 0; posicao < data.length; posicao++){
+        if(data[posicao].nameItem.toLowerCase().includes(inputValue) == true){
+            produtosAchados.push(data[posicao])
+        }
+    }
+    if((produtosAchados.length - 1) == -1){
+        return alert("Produto não encontrado")
+    }
+    else if(inputValue == ""){
+        return alert("Escreva um nome para pesquisar")
+    }
+    else{
+        criarCardProduto(produtosAchados)
+    }
+}
+
+botaoPesquisa.addEventListener("click", pesquisarProdutoClick)
+
+function pesquisarProdutoKeydow(event){
+    let tecla  = event.keyCode
+    if(tecla == 13){
+        inputValue = inputPesquisa.value.trim().toLowerCase()
+        encontrarProduto(inputValue)
+        inputPesquisa.value = ""
+    }
+}
+
+inputPesquisa.addEventListener("keydown", pesquisarProdutoKeydow)
 
 function colocarCarrinho(event){
     let botaoComprar = event.target
@@ -129,18 +202,36 @@ ulVitrine.addEventListener("click", colocarCarrinho)
 
 function removerCarrinho(event){
     let botaoRemover = event.target
+    let totalValorAtualizar = botaoRemover.previousElementSibling
+    novoValor(totalValorAtualizar.innerText)
     if(botaoRemover.tagName == "BUTTON"){
-        contador--
-        let quantidadeValor = document.querySelector(".quantidade-valor")
-        let valorAleatorio  = botaoRemover.siblings('.card-preco')
-        console.log(valorAleatorio)
-        quantidadeValor.innerText = contador
-        let valorValor = document.querySelector(".total-valor")
-        valorValor.innerText = `R$ ${total}`
+        removerQuantidadeValor()
 
         let botaoProduto = botaoRemover.closest(".card-carrinho")
         botaoProduto.remove()
     }
+}
+
+function removerQuantidadeValor(){
+    contador--
+
+    let quantidadeValor = document.querySelector(".quantidade-valor")
+    quantidadeValor.innerText = contador
+
+    let valorValor = document.querySelector(".total-valor")
+    valorValor.innerText = `R$ ${total},00`
+    if(contador === 0){
+        ulCarrinho.append(h2CarrinhoVazio, pCarrinhoVazio)
+
+        divQuantidadeValor.innerHTML = ""
+        divQuantidadeValor.classList = "background"
+    }
+}
+
+function novoValor(valor){
+    let totalValorAtualizar  = valor.replace("R$ ", "").replace(",00", "")
+    let totalValorAtualizado = parseInt(total - totalValorAtualizar)
+    return total = totalValorAtualizado
 }
 
 ulCarrinho.addEventListener("click", removerCarrinho)

@@ -9,7 +9,7 @@ const data = [
       "Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...",
     value: 100,
     addCart: "Adicionar ao carrinho",
-    tag: ["Camisetas", "Acessórios"],
+    tag: ["Camisetas"],
   },
   {
     id: 2,
