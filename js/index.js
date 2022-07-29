@@ -58,7 +58,7 @@ let contador            = 0
 let total               = 0
 
 
-function mudarMnuNav(event){
+function mudarMenuNav(event){
     let target = event.target
     if(target.tagName == "A"){
         let removerStrong = document.querySelector("#strong")
@@ -76,7 +76,6 @@ function mudarVitrine(categoria){
             return criarCardProduto(data)
         }
         else if(categoria == data[posicao].tag[0].toLowerCase().replace("ó", "o").replace("ç", "c")){
-            console.log(dataCategoria)
             dataCategoria.push(data[posicao])
             criarCardProduto(dataCategoria)
         }
@@ -89,7 +88,7 @@ function mudarVitrine(categoria){
     }
 }
 
-ulMenuNav.addEventListener("click", mudarMnuNav)
+ulMenuNav.addEventListener("click", mudarMenuNav)
 
 function pesquisarProdutoClick(event){
     let target = event.target
@@ -156,7 +155,7 @@ function CriarCardCarrinho(id){
 
             liProduto.value                   = data[posicao].id
             liProduto.classList               = "card-carrinho"
-            imgProduto.classList              = "carrinho-img"
+            imgProduto.classList.add("carrinho-img")
             imgProduto.src                    = data[posicao].img
             imgProduto.alt                    = data[posicao].nameItem
             div.classList                     = "carrinho-flex"
